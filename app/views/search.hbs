@@ -1,0 +1,53 @@
+{{!< app}}
+
+<header>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <form class="form search-only" method="get" action="/search">
+                    <div class="col-md-8 col-md-offset-1">
+                        <div class="form-search search-only" ng-class="{'has-error': form.query.$invalid}">
+                            <i class="search-icon glyphicon glyphicon-search"></i>
+                            <input type="text" name="q" id="searchbar" class="form-control" placeholder="Search Phrase" autocomplete="off" required/>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="submit" class="btn btn-primary" value="Search" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+{{#each documents}}
+<h3><a href="/redirect?r={{protocol}}://{{url}}{{path}}">{{title}}</a></h3>
+    <div class="meta">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title"><b>{{protocol}}://{{url}}{{path}}</b></h4>                        
+            </div>
+            <div class="panel-body">
+                <p>{{description}}</p>
+            </div>
+        </div>
+    </div>
+{{/each}}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <ul class="pagination">
+                <li><a href="?page={{{navigation.previousPage}}}">&laquo;</a></li>
+            {{#each navigation.pages}}
+              <li {{#if active}}class="active"{{/if}}><a href="?q={{{query}}}&page={{{page}}}">{{{page}}}</a></li>
+            {{/each}}
+                <li><a href="?page={{{nextPage}}}">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

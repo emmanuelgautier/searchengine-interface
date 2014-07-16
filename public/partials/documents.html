@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div infinite-scroll="nextPage()" infinite-scroll-distance="1">
+                <div ng-repeat="document in documents">
+                    <div ng-if="document.schema"></div>
+                    <div ng-else>
+                        <h3><a href="/redirect?r={{document.protocol}}://{{document.url}}{{document.path}}">{{document.title}}</a></h3>
+                        <div class="meta">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><b>{{document.protocol}}://{{document.url}}{{document.path}}</b></h4>                        
+                                </div>
+                                <div class="panel-body">
+                                    <p>{{document.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

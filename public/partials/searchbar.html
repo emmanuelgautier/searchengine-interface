@@ -1,0 +1,19 @@
+<header>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <form  class="form search-only" novalidate ng-submit="search(query)">
+                    <div class="col-md-8 col-md-offset-1">
+                        <div class="form-search search-only" ng-class="{'has-error': form.query.$invalid}">
+                            <i class="search-icon glyphicon glyphicon-search"></i>
+                            <input type="text" name="q" id="searchbar" class="form-control" placeholder="Search Phrase" autocomplete="off" ng-model="query" ng-required="true" ng-minlength="2" ng-maxlength="1000" required/>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="submit" class="btn btn-primary" value="Search" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
